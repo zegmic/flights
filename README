@@ -1,0 +1,26 @@
+Flights is a Golang based microservice providing a functionality of finding source and destination airport on given set of flight legs.
+Service checks a consistency of the route.
+The microservice does not support cycles as it is not possible to determine source and destination airport e.g. SFO-ATL, ATL-SFO
+
+
+* API spec
+/flights HTTP endpoint accepts POST method with JSON body containing list of flight legs e.g.
+
+{
+  "legs": [
+    {
+      "source": "SFO",
+      "destination": "ATL"
+    },
+    {
+      "source": "ATL",
+      "destination": "EWR"
+    }
+  ]
+}
+
+The response is given in JSON e.g.
+{"source":"SFO","destination":"EWR"}
+
+
+
